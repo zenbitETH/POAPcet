@@ -3,6 +3,7 @@ import { RainbowKitProvider } from "@rainbow-me/rainbowkit";
 import * as React from "react";
 import * as ReactDOM from "react-dom/client";
 import { WagmiConfig } from "wagmi";
+import '../src/Styles/index.css'
 
 import { App } from "./App";
 import { chains, client } from "./wagmi";
