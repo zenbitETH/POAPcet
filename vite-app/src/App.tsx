@@ -11,19 +11,16 @@ export function App() {
   const { isConnected } = useAccount();
 
   return (
-    <>
-      <h1>OP Eth Denver Hackathon</h1>
+    <div className="mx-auto  text-center">
+      <div className="text-9xl font-bold text-red-500">POAPcet</div>
 
-      {/** @see https://www.rainbowkit.com/docs/connect-button */}
       <ConnectButton />
 
       {isConnected && (
-        <>
-          <hr />
+        <div className="h-screen grid items-center">
           <Attestooooooor />
-          <hr />
-        </>
+        </div>
       )}
-    </>
+    </div>
   );
 }
