@@ -4,6 +4,7 @@ import * as React from "react";
 import * as ReactDOM from "react-dom/client";
 import { WagmiConfig } from "wagmi";
 import '../src/Styles/index.css'
+import { Header } from "./components";
 
 import { App } from "./App";
 import { chains, client } from "./wagmi";
@@ -18,6 +19,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <WagmiConfig client={client}>
       <RainbowKitProvider chains={chains}>
+        <Header/>
         <App />
       </RainbowKitProvider>
     </WagmiConfig>

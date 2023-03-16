@@ -1,4 +1,4 @@
-import { ConnectButton } from "@rainbow-me/rainbowkit";
+import { Header } from "./components";
 import { useAccount } from "wagmi";
 
 import { Attestooooooor } from "./components";
@@ -11,11 +11,8 @@ export function App() {
   const { isConnected } = useAccount();
 
   return (
-    <div className="mx-auto  text-center">
-      <div className="text-9xl font-bold text-red-500">POAPcet</div>
-
-      <ConnectButton />
-
+    <div className="mx-auto text-center h-screen grid items-center">
+      
       {isConnected && (
         <div className="h-screen grid items-center">
           <Attestooooooor />
