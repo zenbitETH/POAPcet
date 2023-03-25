@@ -1,3 +1,22 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.manageForm {
+    @apply
+    h-96 border border-red-500 rounded-2xl max-w-2xl mx-auto grid items-center text-center px-5
+}
+
+input, select {
+    @apply
+    bg-gray-300/50
+    py-2 px-3 rounded-2xl
+}
+
+
+
+button {
+    @apply
+    hover:bg-red-500/60 px-5 py-2 rounded-2xl
+    mx-5 
+}
