@@ -1,6 +1,5 @@
-import { Header } from "./components";
 import { useAccount } from "wagmi";
-
+import Carousel from "./components/Carousel";
 import { Attestooooooor } from "./components";
 
 export function App() {
@@ -12,7 +11,7 @@ export function App() {
 
   return (
     <div className="mx-auto text-center h-screen grid items-center">
-      
+      <Carousel/>
       {isConnected && (
         <div className="h-screen grid items-center">
           <Attestooooooor />
