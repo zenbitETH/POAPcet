@@ -1,6 +1,7 @@
 import { useAccount } from "wagmi";
 import Carousel from "./components/Carousel";
-import { Attestooooooor } from "./components";
+//import { Attestooooooor } from "./components";
+import POAPStatus from "./components/POAPstatus";
 
 export function App() {
   /**
@@ -14,7 +15,8 @@ export function App() {
       {!isConnected &&<Carousel/>}
       {isConnected && (
         <div className="h-screen grid items-center">
-          <Attestooooooor />
+          {/*<Attestooooooor />/*/}
+          <POAPStatus/>
         </div>
       )}
     </div>
