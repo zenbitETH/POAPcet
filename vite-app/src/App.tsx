@@ -1,7 +1,7 @@
-import { Header } from "./components";
 import { useAccount } from "wagmi";
-
-import { Attestooooooor } from "./components";
+import Carousel from "./components/Carousel";
+//import { Attestooooooor } from "./components";
+import POAPStatus from "./components/POAPstatus";
 
 export function App() {
   /**
@@ -12,10 +12,11 @@ export function App() {
 
   return (
     <div className="mx-auto text-center h-screen grid items-center">
-      
+      {!isConnected &&<Carousel/>}
       {isConnected && (
         <div className="h-screen grid items-center">
-          <Attestooooooor />
+          {/*<Attestooooooor />/*/}
+          <POAPStatus/>
         </div>
       )}
     </div>
