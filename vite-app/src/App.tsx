@@ -11,7 +11,7 @@ export function App() {
 
   return (
     <div className="mx-auto text-center h-screen grid items-center">
-      <Carousel/>
+      {!isConnected &&<Carousel/>}
       {isConnected && (
         <div className="h-screen grid items-center">
           <Attestooooooor />
