@@ -32,14 +32,14 @@ const initialFormData: FormData = {
 };
 
 
-const networks = ['Optimism Goerli', 'Goerli'];
+const networks = ['Optimism Mainnet', 'Optimism Goerli'];
 
 const ManageFaucet: React.FC = () => {
   const [hasFaucet, setHasFaucet] = useState<boolean>(false);
   const [formData, setFormData] = useState<FormData>(initialFormData);
   const [step, setStep] = useState<number>(1);
   const { address } = useAccount();
-  const contractAddress = "0x2b251Df91A1da87102e932075c304088dB0F926B";
+  const contractAddress = "0x9a8372De77E04651910d7a53B0930b2813AE416C";
 
   const contractWrite1 = useContractWrite({
     mode: 'recklesslyUnprepared',

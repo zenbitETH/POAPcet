@@ -54,14 +54,14 @@ const Carousel: React.FC = () => {
             <div className='border-black/60 border-2 rounded-2xl h-96 grid grid-cols-2 items-center mx-auto gap-5 px-10'>
               <div className='col-span-2 text-2xl'>Current onboarding process <div className='text-base'>🪨 Limited to web3 niches</div> </div>
               <div className='carBG'> <div className='text-4xl'>🎫</div> 1. Onboarding event</div>
-              <div className='carBG'> <div className='text-4xl'>🦊</div> 2. Download and set wallet</div>
+              <div className='carBG'> <div className='text-4xl'>🦊</div> 2. Get a Web3 wallet</div>
               <div className='carBG'> <div className='text-4xl'>🎖️</div> 3. Claim POAP</div>
               <div className='carBG'> <div className='text-4xl'>🥵</div> 4. Mainnet interactions</div>
             </div>
             <div className='border-red-500 border-2 rounded-2xl h-96 grid grid-cols-2 items-center mx-auto gap-5 px-10'>
               <div className='col-span-2 text-2xl'>POAPcet onboarding process <div className='text-base'>🌎 Scalable to the next billion</div> </div>
               <div className='carBG2'> <div className='text-4xl'>🎫</div> 1. Onboarding event</div>
-              <div className='carBG2'> <div className='text-4xl'>🦊</div> 2. Download and set wallet</div>
+              <div className='carBG2'> <div className='text-4xl'>🦊</div> 2. Get a Web3 wallet</div>
               <div className='carBG2'> <div className='text-4xl'>🎖️</div> 3. Claim POAP</div>
               <div className='carBG2'> <div className='text-4xl'>🤓</div> 4. Testnet interactions</div>
             </div>
@@ -74,7 +74,7 @@ const Carousel: React.FC = () => {
             <div className='col-span-3 text-2xl'>Yet... testnet UX is fragmented </div>
             <div className='carBG'> <div>❌</div> Public faucet or manual tx</div>
             <div className='carBG'> <div>❌</div> Only testnet faucets</div>
-            <div className='carBG'> <div>❌</div> POAP without attestation</div>
+            <div className='carBG'> <div>❌</div> One more POAP </div>
           </div>
           <div className='border-red-500 border-2 rounded-2xl h-96 grid grid-cols-3 items-center mx-auto gap-5 px-10'>
             <div className='col-span-3 text-2xl'><div className=''><img className="mx-auto" width={250} src={Logo} alt="" /></div></div>

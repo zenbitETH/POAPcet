@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useAccount, useContractRead, useContractWrite } from 'wagmi';
 import { poaPcetABI } from '../generated';
+import POAPcet from '../Public/poapcet.png'
 
 const POAPStatus: React.FC = () => {
   const [isPOAPHolder, setIsPOAPHolder] = useState<boolean>(false);
@@ -49,13 +50,14 @@ const POAPStatus: React.FC = () => {
   return (
     <div className="text-center">
       {isPOAPHolder ? (
-        <div className='border border-green-500 rounded-2xl max-w-2xl mx-auto h-96 grid items-center'>
-          <div className="text-green-600">You are holding the POAP, claim your test funds!</div>
+        <div className='border border-green-500 rounded-2xl max-w-3xl mx-auto h-96 grid items-center'>
+          <div className=''><img className="mx-auto" width={200} src={POAPcet} alt="" /></div>
+          <div className="text-green-600 text-xl">You are holding the POAP 111529, claim your test funds on <span className='text-red-500'>Optimism Goerli</span>!</div>
           <button className='bg-gray-200 rounded-2xl hover:bg-green-500 hover:text-white py-2 px-4 mx-auto' onClick={() => claimFunds()}> Claim test funds</button>
         </div>
       ) : (
-        <div className="text-red-600">
-          Sorry, you are not holding the POAP
+        <div className="text-red-600 text-5xl">
+          Sorry, you are not holding the POAP or you have not claim it yet
         </div>
       )}
     </div>
