@@ -47,6 +47,7 @@ contract POAPcet is Ownable, AccessControl {
         funds = _funds;
         gas = _gas;
         amount = _funds / _participants;
+        amount = amount * 1000000000;
     }
 
     function updateFaucet(
@@ -94,6 +95,8 @@ contract POAPcet is Ownable, AccessControl {
         // length of the members
         return members.length;
     }
+
+    function deposit() public payable { }
 
     function withdraw(uint256 _amount) public onlyOwner {
         require(_amount <= address(this).balance, "Insufficient balance.");
