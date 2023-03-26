@@ -39,23 +39,23 @@ const ManageFaucet: React.FC = () => {
   const [formData, setFormData] = useState<FormData>(initialFormData);
   const [step, setStep] = useState<number>(1);
   const { address } = useAccount();
+  const contractAddress = "0x2b251Df91A1da87102e932075c304088dB0F926B";
 
   const contractWrite1 = useContractWrite({
     mode: 'recklesslyUnprepared',
-    address: '0x9a8372De77E04651910d7a53B0930b2813AE416C',
+    address: contractAddress,
     abi: poaPcetABI,
     functionName: 'createFaucet',
     args: [formData.name, formData.description, formData.network, BigNumber.from(formData?.poapId), BigNumber.from(formData?.duration), BigNumber.from(formData?.participants), BigNumber.from(formData?.faucetAmount), BigNumber.from("100000000")],
   })
   const contractWrite2 = useContractWrite({
     mode: 'recklesslyUnprepared',
-    address: '0x9a8372De77E04651910d7a53B0930b2813AE416C',
+    address: contractAddress,
     abi: poaPcetABI,
     functionName: 'deposit',
     overrides: {
-      value: ethers.utils.parseEther(formData?.faucetAmount?.toString())
+      value: ethers.utils.parseUnits((formData?.faucetAmount + 100000000).toString(), "gwei")
     }
-
   })
 
   const key = encodeRawKey(formData.attestationName);
