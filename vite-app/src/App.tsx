@@ -11,7 +11,7 @@ export function App() {
   const { isConnected } = useAccount();
 
   return (
-    <div className="mx-auto text-center h-screen grid items-center">
+    <div className="mx-auto text-center h-screen grid items-center font-kan">
       {!isConnected &&<Carousel/>}
       {isConnected && (
         <div className="h-screen grid items-center">
