@@ -78,7 +78,6 @@ contract POAPcet is Ownable, AccessControl {
     function drip(address _address) public {
         require(!claimed[_address], "Address has already claimed funds.");
         require(address(this).balance >= amount, "Faucet is out of funds.");
-        require(hasRole(ROLE_A, _address), "Don't have the member Role");
         require(
             hasRole(DEFAULT_ADMIN_ROLE, _address) ||
                 getRoleMemberCount() < participants,
@@ -97,6 +96,10 @@ contract POAPcet is Ownable, AccessControl {
     }
 
     function deposit() public payable { }
+
+    function readPOAPID() public view returns (uint) {
+        return poapID;
+    }
 
     function withdraw(uint256 _amount) public onlyOwner {
         require(_amount <= address(this).balance, "Insufficient balance.");
