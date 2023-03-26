@@ -115,23 +115,44 @@ const ManageFaucet: React.FC = () => {
     // ManageFaucet state
     return (
       <div className='text-center grid items-center h-screen mx-auto font-kan'>
-        <div>
-          <h2>Deployed faucet</h2>
-          <p>Name: {formData.name}</p>
-          <p>Description: {formData.description}</p>
-          <p>Network: {formData.network}</p>
-          <p>POAP ID: {formData.poapId}</p>
-          <p>Duration / days left: {formData.duration}</p>
+        <div className='text-center mx-auto border border-2 border-red-500 max-w-4xl p-10 rounded-2xl'>
+          <div className='text-3xl'>Manage your faucet</div>
+          <div className='flex text-left gap-5 items-center my-3'>
+            <div className='text-sm'>Name: </div>
+            <div className='text-2xl text-red-500'>{formData.name}</div>
+          </div>
+          <div className='flex text-left gap-3 items-center my-3'>
+            <div className='text-sm'>Description: </div>
+            <div className='text-2xl text-red-500'>{formData.description}</div></div>
+          <div className='flex text-left gap-3 items-center my-3'>
+            <div className='text-sm'>Network: </div>
+            <div className='text-2xl text-red-500'>{formData.network}</div>
+          </div>
+          <div className='flex text-left gap-3 items-center my-3'>
+            <div className='text-sm'>POAP ID: </div>
+            <div className='text-2xl text-red-500'> {formData.poapId}</div>
+          </div>
+          <div className='flex text-left gap-3 items-center'>
+            <div className='text-sm'>Duration / days left:</div>
+            <div className='text-2xl text-red-500'>{formData.duration}</div>
+          </div>
+          <div className='flex text-left gap-3 items-center'>
+            <div className='text-sm'>Total users:</div>
+            <div className='text-2xl text-red-500'>{/* Fetch total users */}</div>
+          </div>
+          <div className='flex text-left gap-3 items-center'>
+            <div className='text-sm'>Amount per user:</div>
+            <div className='text-2xl text-red-500'>{formData.faucetAmount}</div>
+          </div>
+          <div className='flex text-left gap-3 items-center'>
+            <div className='text-sm'>Users that have claimed funds:</div>
+            <div className='text-2xl text-red-500'>{/* Fetch claimed users */}</div>
+          </div>
+          <div className='flex text-left gap-3 items-center'>
+            <div className='text-sm'>Amount claimed:</div>
+            <div className='text-2xl text-red-500'>{/* Fetch claimed amount */}</div>
+          </div>
         </div>
-
-        <div>
-          <h2>Usage</h2>
-          <p>Total users: {/* Fetch total users */}</p>
-          <p>Amount per user: {formData.faucetAmount}</p>
-          <p>Users that have claimed funds: {/* Fetch claimed users */}</p>
-          <p>Amount claimed: {/* Fetch claimed amount */}</p>
-        </div>
-
 
 
         <div className='flex gap-5 mx-auto'>
@@ -163,7 +184,7 @@ const ManageFaucet: React.FC = () => {
               onChange={(e) => handleInputChange(e, 'poapId')}
             />
           </div>
-          <button onClick={handleUpdate}>Update</button>
+          <button className='bg-gray-200' onClick={handleUpdate}>Update</button>
         </div>
 
 
