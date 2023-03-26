@@ -1,12 +1,32 @@
 import React, { useState } from 'react';
+import { useAccount, useContractRead } from 'wagmi';
 
 const POAPStatus: React.FC = () => {
   const [isPOAPHolder, setIsPOAPHolder] = useState<boolean>(true);
-
+  const { address } = useAccount();
   // Toggle const should be substituted with the POAP api call 
   const togglePOAPHolder = () => {
     setIsPOAPHolder(!isPOAPHolder);
   };
+
+  // const contractRead = useContractRead({
+  //   address: '0xecb504d39723b0be0e3a9aa33d646642d1051ee1',
+  //   abi: wagmigotchiABI,
+  //   functionName: 'getHunger',
+  // })
+
+  // const options = {
+  //   method: 'GET',
+  //   headers: {
+  //     accept: 'application/json',
+  //     'x-api-key': 'aS431lJmSTnSD0Gqk43vwh7TonWFW8gZW9MNtvAhgQyMMZLFE3taXw6njkOeVTG6Sk3LpjzmlAC8GURfFIbEGx7M8kPFu5HOf0eOi6wY1MMc7isCJHGrW6gBe3HAoG6f'
+  //   }
+  // };
+  
+  // fetch(`https://api.poap.tech/actions/scan/${address}/111529`, options)
+  //   .then(response => response.json())
+  //   .then(response => console.log(response))
+  //   .catch(err => console.error(err));
 
   return (
     <div className="text-center" onClick={togglePOAPHolder}>
