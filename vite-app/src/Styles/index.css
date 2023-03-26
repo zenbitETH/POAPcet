@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600;1,700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -19,4 +21,24 @@ button {
     @apply
     hover:bg-red-500/60 px-5 py-2 rounded-2xl
     mx-5 
+}
+
+.carBG, .carBG2, .carBG3 {
+    @apply
+    rounded-2xl px-5 py-3
+}
+
+.carBG {
+    @apply 
+    bg-black/60 text-white 
+}
+
+.carBG2 {
+    @apply 
+    bg-red-500/60
+}
+
+.carBG3 {
+    @apply 
+    border border-2 border-red-500 text-xl
 }

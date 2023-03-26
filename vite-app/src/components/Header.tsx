@@ -13,7 +13,7 @@ export function Header() {
 
   return (
     <div
-      className={`fixed top-0 py-3 w-full flex items-center text-center ${
+      className={`fixed top-0 py-3 w-full flex items-center text-center font-kan ${
         isConnected ? 'justify-between' : 'justify-center'
       }`}
     >
