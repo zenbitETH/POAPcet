@@ -10,11 +10,18 @@ export function Header() {
   const goToManageFaucet = () => {
     navigate('/manage');
   };
-  
 
   return (
-    <div className="fixed top-0 py-3 w-full flex justify-between items-center">
-      <a href='/'><img className="mx-5" width={250} src={Logo} alt="" /></a>
+    <div
+      className={`fixed top-0 py-3 w-full flex items-center text-center ${
+        isConnected ? 'justify-between' : 'justify-center'
+      }`}
+    >
+      {isConnected && (
+        <a href="/">
+          <img className="mx-5" width={250} src={Logo} alt="" />
+        </a>
+      )}
       <div className="mx-5 flex gap-10">
         {isConnected && (
           <div
