@@ -4,9 +4,13 @@
 @tailwind components;
 @tailwind utilities;
 
+.inTags {
+    @apply
+    w-64 text-xl text-right
+}
 .manageForm {
     @apply
-    h-96 border border-red-500 rounded-2xl max-w-2xl mx-auto grid items-center text-center px-5
+    h-96 border border-red-500 border-2 rounded-2xl max-w-2xl mx-auto grid items-center text-center px-5
 }
 
 input, select {

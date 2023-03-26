@@ -32,7 +32,7 @@ const initialFormData: FormData = {
 };
 
 
-const networks = ['Optimism Goerli', 'Gnosis testnet', 'Goerli'];
+const networks = ['Optimism Goerli', 'Goerli'];
 
 const ManageFaucet: React.FC = () => {
   const [hasFaucet, setHasFaucet] = useState<boolean>(false);
@@ -114,7 +114,7 @@ const ManageFaucet: React.FC = () => {
   if (hasFaucet) {
     // ManageFaucet state
     return (
-      <div className='text-center grid items-center h-screen mx-auto'>
+      <div className='text-center grid items-center h-screen mx-auto font-kan'>
         <div>
           <h2>Deployed faucet</h2>
           <p>Name: {formData.name}</p>
@@ -174,23 +174,31 @@ const ManageFaucet: React.FC = () => {
   } else {
     // NoFaucet state
     return (
-      <div className='text-center grid items-center h-screen mx-auto'>
+      <div className='text-center grid items-center h-screen mx-auto font-kan'>
         <form onSubmit={(e) => e.preventDefault()}>
           {step === 1 && (
             <div className='manageForm'>
-              <h2>Step 1 - General info</h2>
-              <input
-                type="text"
-                placeholder="Faucet name"
-                value={formData.name}
-                onChange={(e) => handleInputChange(e, 'name')}
-              />
-              <input
-                type="text"
-                placeholder="Description"
-                value={formData.description}
-                onChange={(e) => handleInputChange(e, 'description')}
-              />
+              <div className='text-2xl' >Step 1 - General info</div>
+              <div className='flex gap-5 items-center'>
+                <div className='inTags'>Faucet Name</div>
+                <input
+                  className='w-full'
+                  type="text"
+                  placeholder="MyTestingProject"
+                  value={formData.name}
+                  onChange={(e) => handleInputChange(e, 'name')}
+                />
+              </div> 
+              <div className='flex gap-5 items-center'>
+                <div className='inTags'>Description</div>
+                <input
+                  className='w-full'
+                  type="text"
+                  placeholder="Describe the purpose of your faucet"
+                  value={formData.description}
+                  onChange={(e) => handleInputChange(e, 'description')}
+                />
+              </div>
               <select
                 value={formData.network}
                 onChange={(e) => handleInputChange(e, 'network')}
@@ -207,9 +215,9 @@ const ManageFaucet: React.FC = () => {
 
           {step === 2 && (
             <div className='manageForm'>
-              <h2>Step 2 - Onboarding setting</h2>
+              <div className='text-2xl' >Step 2 - Faucet setting</div>
               <div className='flex gap-5 items-center'>
-                <div className='w-32'>POAPid</div>
+                <div className='inTags'>POAPid</div>
                 <input
                   type="number"
                   placeholder="POAP ID"
@@ -219,7 +227,7 @@ const ManageFaucet: React.FC = () => {
                 />
               </div>
               <div className='flex gap-5 items-center'>
-                <div className='w-32'>Duration</div>
+                <div className='inTags'>Duration (days)</div>
                 <input
                   type="number"
                   placeholder="Duration in days"
@@ -229,7 +237,7 @@ const ManageFaucet: React.FC = () => {
                 />
               </div>
               <div className='flex gap-5 items-center'>
-                <div className='w-32'># Participants</div>
+                <div className='inTags'># Participants</div>
                 <input
                   type="number"
                   placeholder="Number of participants"
@@ -239,7 +247,7 @@ const ManageFaucet: React.FC = () => {
                 />
               </div>
               <div className='flex gap-5 items-center'>
-                <div className='w-32'>Amount</div>
+                <div className='inTags'>Funds + Gas Fees</div>
                 <input
                   type="number"
                   placeholder="Faucet amount"
@@ -249,7 +257,7 @@ const ManageFaucet: React.FC = () => {
                 />
               </div>
               <div className='flex gap-5 items-center'>
-                <div className='w-32'>Atestation</div>
+                <div className='inTags'>Atestation</div>
                 <input
                   type="text"
                   placeholder="Attestation Name"
@@ -263,17 +271,19 @@ const ManageFaucet: React.FC = () => {
 
           {step === 3 && (
             <div className='manageForm'>
-              <h2>Step 3 - Confirm Settings</h2>
-              <p>Name: {formData.name}</p>
-              <p>Description: {formData.description}</p>
-              <p>Network: {formData.network}</p>
-              <p>POAP ID: {formData.poapId}</p>
-              <p>Attestation name: {formData.attestationName}</p>
-              <p>Number of participants: {formData.participants}</p>
-              <p>Faucet amount: {formData.faucetAmount}</p>
-              <p>
-                Total amount for the faucet: {formData.participants * formData.faucetAmount}
-              </p>
+              <div className='grid grid-cols-2 gap-5'>
+              <div className=' col-span-2 text-2xl text-red-500' >Step 3 - Confirm Settings</div>
+                <div className='font-light text-sm text-left'>Name: <span className='px-2 text-xl text-red-500 w-full rounded-2xl animate-pulse'>{formData.name}</span></div>
+                <div className='font-light text-sm text-left'>Network: <span className='px-2 text-xl text-red-500 w-full rounded-2xl animate-pulse'>{formData.network}</span></div>
+                <div className='font-light text-sm text-left col-span-2'>Description: <span className='px-2 text-xl text-red-500 w-full rounded-2xl animate-pulse '>{formData.description}</span></div>
+                <div className='font-light text-sm text-left'>POAP ID: <span className='px-2 text-xl text-red-500 w-full rounded-2xl animate-pulse'>{formData.poapId}</span></div>
+                <div className='font-light text-sm text-left'>Attestation name: <span className='px-2 text-xl text-red-500 w-full rounded-2xl animate-pulse'>{formData.attestationName}</span></div>
+                <div className='font-light text-sm text-left'>Number of participants: <span className='px-2 text-xl text-red-500 w-full rounded-2xl animate-pulse'>{formData.participants}</span></div>
+                <div className='font-light text-sm text-left'>Faucet amount: <span className='px-2 text-xl text-red-500 w-full rounded-2xl animate-pulse'>{formData.faucetAmount}</span></div>
+                <div className='font-light text-sm text-left'>
+                  Total amount for the faucet: <span className='px-2 text-xl text-red-500 w-full rounded-2xl animate-pulse'>{formData.participants * formData.faucetAmount}</span>
+                </div>
+              </div>
             </div>
           )}
           <div className='mt-5'>
