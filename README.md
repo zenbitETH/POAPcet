@@ -20,10 +20,9 @@ We will build a custom faucet working on a vite app that fetches POAs held by us
 
 ### Built with:
 
-- Next.js  
-- Filecoin Hyperspace Network  
-- js IPFS
-
+- Optimism Attestation Contract  
+- POAP API
+- Vite app
 
 
 
