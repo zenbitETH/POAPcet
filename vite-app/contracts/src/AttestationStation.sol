@@ -12,6 +12,13 @@ import {Semver} from "@eth-optimism/contracts-bedrock/contracts/universal/Semver
  *       https://github.com/ethereum-optimism/optimism/blob/develop/packages/contracts-periphery/contracts/universal/op-nft/AttestationStation.sol
  */
 contract AttestationStation is Semver {
+
+
+
+    // Attestation should be available after the user has done the testing part and so they can claim the test funds
+    // There should be another button added on that page where they can attest as well
+
+
     /**
      * @notice Struct representing data that is being attested.
      *
