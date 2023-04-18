@@ -24,7 +24,7 @@ contract POAPcet is Ownable {
 
     faucet [] faucets;
 
-    mapping(address => bool) claimed;
+    mapping(address => mapping (uint256 => bool)) claimed;
     mapping(uint256 => address) faucetOwner;
     mapping(uint256 => faucet) faucetById;
     mapping(address => faucet[]) userFaucets;
@@ -55,7 +55,7 @@ contract POAPcet is Ownable {
 
 
     // Only the person who created the selected Faucet can update the faucet
-    // We need to also track how much amount the faucet has / remained in it for the user who created the faucet 
+    // We need to also track how much amount the faucet has / remained in it for the user who created the faucet
     // if there are funds left, can the manager of the faucet withdraw it
     // set a close event function to claim back the remaining funds if there are any
     // function updateFaucet(
@@ -77,15 +77,15 @@ contract POAPcet is Ownable {
 
     // This is the function where actually the participants can claim their funds from the contract
     function drip(uint256 _id) public {
-        require(!claimed[msg.sender], "Address has already claimed funds");
+        require(claimed[msg.sender][_id] != true, "Address has already claimed funds");
         require(faucetOwner[_id] != msg.sender, "Manager cannot drip from a faucet");
         uint256 fundsAmount = getAmountByFaucetId(_id);
-        require(address(this).balance >= fundsAmount, "Faucet is out of funds");
-        require(members[_id].length <= faucets[_id].participants, "This faucet has reached the max users");
+        require(faucets[_id].remainingAmount > 0, "Faucet is out of funds");
+        // require(members[_id].length <= faucets[_id].participants, "This faucet has reached the max users");
 
         members[_id].push(payable(msg.sender));
         payable(msg.sender).transfer(fundsAmount);
-        claimed[msg.sender] = true;
+        claimed[msg.sender][_id] = true;
         faucets[_id].remainingAmount -= fundsAmount;
 
         emit FundsDispensed(msg.sender, fundsAmount);
@@ -95,7 +95,7 @@ contract POAPcet is Ownable {
         return faucets[_id].amount;
     }
 
-    function listFaucets()public view returns (faucet[] memory){
+    function listFaucets() public view returns (faucet[] memory){
         return faucets;
     }
 
@@ -123,6 +123,10 @@ contract POAPcet is Ownable {
         // require(currentDate - creationDate < 604800, "This faucet is inactive now")
     }
 
+    function getContractBalance() public view returns(uint256) {
+        return address(this).balance;
+    }
+
     function safeWithdraw(uint256 _amount) public onlyOwner {
         payable(msg.sender).transfer(_amount);
     }
@@ -130,5 +134,5 @@ contract POAPcet is Ownable {
     function getMembers(uint256 _id) public view returns (address payable[] memory) {
         return members[_id];
     }
-    // We also need to check if each participants has the POAP or not, if they don't then they are getting the "sorry" page, if yes then they can claim the test Funds. 
+    // We also need to check if each participants has the POAP or not, if they don't then they are getting the "sorry" page, if yes then they can claim the test Funds.
 }
